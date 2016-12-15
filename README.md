@@ -8,7 +8,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/unicodeveloper/jusibe-php-lib.svg?style=flat-square)](https://scrutinizer-ci.com/g/unicodeveloper/jusibe-php-lib)
 [![Total Downloads](https://img.shields.io/packagist/dt/unicodeveloper/jusibe-php-lib.svg?style=flat-square)](https://packagist.org/packages/unicodeveloper/jusibe-php-lib)
 
-> Jusibe Library for PHP
+> Mvrd Library for PHP
 
 ## Installation
 
@@ -36,7 +36,7 @@ Available methods for use right now are:
 $mvrd->getData();
 ```
 
-### Send an SMS
+### Grab the Vehicle Details
 
 ```php
 
@@ -54,11 +54,11 @@ $mvrd->getData();
 
 ```
 
-**Response**
+**Response Info for Developer**
 
-![SendSMS Response](https://cloud.githubusercontent.com/assets/2946769/14465033/451179c4-00c9-11e6-881e-bcc92665fa7c.png)
+![Response](https://cloud.githubusercontent.com/assets/2946769/21229950/a596d992-c2e3-11e6-8ede-6d0467b4fbd4.png)
 
-### Check SMS Credits
+### Grab the Vehicle Details with Wrong or Invalid Plate Number
 
 ```php
 
@@ -67,54 +67,18 @@ $mvrd->getData();
 // include your composer dependencies
 require_once 'vendor/autoload.php';
 
-use Unicodeveloper\Jusibe\Jusibe;
+use Unicodeveloper\Mvrd\Mvrd;
 
-$publicKey = 'xxxxxxxxxxxxxx';
-$accessToken = 'xxxxxxxxxxxxxx';
+$plateNumber = 'xxxxxxxxxxxxxx';
 
-$jusibe = new Jusibe($publicKey, $accessToken);
-
-try {
-   $response = $jusibe->checkAvailableCredits()->getResponse();
-   print_r($response);
-} catch(Exception $e) {
-    echo $e->getMessage();
-}
+$mvrd = new Mvrd($plateNumber);
+$mvrd->getData();
 
 ```
 
 **Response Info for Developer**
 
-![Check SMS Credits Response](https://cloud.githubusercontent.com/assets/2946769/14465412/d15361f8-00ca-11e6-8145-7cb8cd2b46d0.png)
-
-### Check Delivery Status
-
-```php
-
-<?php
-
-// include your composer dependencies
-require_once 'vendor/autoload.php';
-
-use Unicodeveloper\Jusibe\Jusibe;
-
-$publicKey = 'xxxxxxxxxxxxxx';
-$accessToken = 'xxxxxxxxxxxxxx';
-
-$jusibe = new Jusibe($publicKey, $accessToken);
-
-try {
-    $response = $jusibe->checkDeliveryStatus('8nb1wrgdjw')->getResponse();
-    print_r($response);
-} catch(Exception $e) {
-    echo $e->getMessage();
-}
-
-```
-
-**Response Info for Developer**
-
-![Check Delivery Status Response](https://cloud.githubusercontent.com/assets/2946769/14465686/bb61e3d2-00cb-11e6-9164-ec73665408f3.png)
+![Check SMS Credits Response](https://cloud.githubusercontent.com/assets/2946769/21229979/bc704824-c2e3-11e6-8562-ec15fa7e2cdb.png)
 
 ## Contributing
 
