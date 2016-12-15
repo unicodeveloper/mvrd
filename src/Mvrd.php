@@ -24,18 +24,6 @@ class Mvrd {
     const baseURL = 'http://www.lsmvaapvs.org';
 
     /**
-     * Public key
-     * @var string
-     */
-    protected $publicKey;
-
-    /**
-     * Access token
-     * @var string
-     */
-    protected $accessToken;
-
-    /**
      *  Response from requests made to lsmvaapvs.org
      * @var mixed
      */
@@ -49,8 +37,7 @@ class Mvrd {
 
     /**
      * Constructor
-     * @param $publicKey   string
-     * @param $accessToken string
+     * @param $plateNumber string
      */
     public function __construct($plateNumber = null)
     {

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Jusibe PHP library.
+ * This file is part of the Mvrd PHP library.
  *
  * (c) Prosper Otemuyiwa <prosperotemuyiwa@gmail.com>
  *
