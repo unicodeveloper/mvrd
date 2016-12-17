@@ -1,7 +1,7 @@
 {
     "name": "unicodeveloper/mvrd",
     "description": "Unofficial Motor Vehicle Registration Information Search Portal Library",
-    "keywords": ["php","api","motor","nigeria"],
+    "keywords": ["php","api","motor","nigeria", "vehicle information", "registration"],
     "license": "MIT",
     "authors": [
       {
