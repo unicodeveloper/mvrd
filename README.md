@@ -10,6 +10,10 @@
 
 > Mvrd Library for PHP
 
+Head over to [lsmvaapvs.org](http://www.lsmvaapvs.org) and input a valid Nigerian Plate Number. Your result would be like so:
+
+![Plate Number Result](https://cloud.githubusercontent.com/assets/2946769/21285119/1e414f42-c430-11e6-98a5-7c6af945f440.png)
+
 ## Installation
 
 [PHP](https://php.net) 5.4+ or [HHVM](http://hhvm.com) 3.3+, and [Composer](https://getcomposer.org) are required.
