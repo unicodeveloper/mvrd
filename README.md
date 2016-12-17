@@ -1,12 +1,12 @@
 # Mvrd library - Grab all the Nigerian Vehicles Data!!!
 
-[![Latest Stable Version](https://poser.pugx.org/unicodeveloper/jusibe-php-lib/v/stable.svg)](https://packagist.org/packages/unicodeveloper/jusibe-php-lib)
-[![License](https://poser.pugx.org/unicodeveloper/jusibe-php-lib/license.svg)](LICENSE.md)
+[![Latest Stable Version](https://poser.pugx.org/unicodeveloper/mvrd/v/stable.svg)](https://packagist.org/packages/unicodeveloper/jusibe-php-lib)
+[![License](https://poser.pugx.org/unicodeveloper/mvrd/license.svg)](LICENSE.md)
 ![](https://img.shields.io/badge/unicodeveloper-approved-brightgreen.svg)
 [![Build Status](https://img.shields.io/travis/unicodeveloper/jusibe-php-lib.svg)](https://travis-ci.org/unicodeveloper/jusibe-php-lib)
 [![Coveralls](https://img.shields.io/coveralls/unicodeveloper/jusibe-php-lib/master.svg)](https://coveralls.io/github/unicodeveloper/jusibe-php-lib?branch=master)
 [![Quality Score](https://img.shields.io/scrutinizer/g/unicodeveloper/jusibe-php-lib.svg?style=flat-square)](https://scrutinizer-ci.com/g/unicodeveloper/jusibe-php-lib)
-[![Total Downloads](https://img.shields.io/packagist/dt/unicodeveloper/jusibe-php-lib.svg?style=flat-square)](https://packagist.org/packages/unicodeveloper/jusibe-php-lib)
+[![Total Downloads](https://img.shields.io/packagist/dt/unicodeveloper/mvrd.svg?style=flat-square)](https://packagist.org/packages/unicodeveloper/jusibe-php-lib)
 
 > Mvrd Library for PHP
 
