@@ -82,7 +82,8 @@ class Mvrd {
         $crawler = new Crawler($html);
 
         $nodeValues = $crawler->filter('table > tbody > tr')->each( function( $node, $i) {
-                return $node->text();
+                
+                return trim(str_replace(["\n", "\r", "  "], '', $node->text()));
         });
 
         return $nodeValues;
