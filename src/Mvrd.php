@@ -80,10 +80,29 @@ class Mvrd {
         $html = (string) $this->response->getBody();
 
         $crawler = new Crawler($html);
+        $data = [];
 
         $nodeValues = $crawler->filter('table > tbody > tr')->each( function( $node, $i) {
                 // Remove double spaces, and newline(s)
-                return trim(str_replace(["\n", "  "], '', $node->text()));
+                $formData = trim(preg_replace('/\s+/', ' ', $node->text()));
+
+                // Prepare data to be stored as key=>value pairs
+                $string = explode(' ', $formData, 3);   
+                // Use the number of spaces in the string as a requisite to handle them.
+                // e.g Color field(1 space) contains less spaces than Plate Number(2 spaces) e.t.c
+                if (substr_count($formData, ' ') > 1) {
+                    // Check if the string holds Vehicle Model data as this needs to be stored differently.
+                    $string[0] == 'Model' ? $true = true : $true = false;
+                    if ($true) {
+                        $data[$string[0]] = $string[1] .' '. $string[2];
+                    }else{
+                        $data[$string[0].$string[1]] =  $string[2];
+                    }                   
+                }else{
+                    $data[$string[0]] =  $string[1];
+                }
+                
+                return $data;          
         });
 
         return $nodeValues;
