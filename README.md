@@ -74,7 +74,7 @@ require_once 'vendor/autoload.php';
 
 use Unicodeveloper\Mvrd\Mvrd;
 
-$plateNumber = 'xxxxxxxxxxxxxx';
+$plateNumber = 'xxxxxxxxxxxxxx'; //Use correct vehicle plate number, don't try this at home.
 
 $mvrd = new Mvrd($plateNumber);
 $mvrd->getData()['Color'];
@@ -91,7 +91,7 @@ Vehicle Information that can be acquired are;
  - IssueDate
  - ExpiryDate
 
-*Please note that the array keys are case sensitive.* 
+*Please note that the array keys are case sensitive and can only be used as shown above.* 
 
 **Response Info for Developer**
 
