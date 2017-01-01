@@ -96,6 +96,7 @@ class Mvrd {
                     if ($true) {
                         $data[$string[0]] = $string[1] .' '. $string[2];
                     }else{
+                        $string[0] = $string[0] == 'Isssue' ? 'Issue' : $string[0];
                         $data[$string[0].$string[1]] =  $string[2];
                     }                   
                 }else{
@@ -104,8 +105,15 @@ class Mvrd {
                 
                 return $data;          
         });
+        // Strip multi-dimensional array into simple associative array.
+        $vehicleData = [];
+        foreach ($nodeValues as $index => $value) {
+            foreach ($value as $key => $carData) {
+                $vehicleData[$key] = $carData;
+            }
+        }
 
-        return $nodeValues;
+        return $vehicleData;
     }
 }
 
