@@ -80,32 +80,17 @@ class Mvrd {
         $html = (string) $this->response->getBody();
 
         $crawler = new Crawler($html);
-        $data = [];
+        $rawVehicleData = [];
 
         $nodeValues = $crawler->filter('table > tbody > tr')->each( function( $node, $i) {
                 // Remove double spaces, and newline(s)
                 $formData = trim(preg_replace('/\s+/', ' ', $node->text()));
 
-                // Prepare data to be stored as key=>value pairs
-                $string = explode(' ', $formData, 3);   
-                // Use the number of spaces in the string as a requisite to handle them.
-                // e.g Color field(1 space) contains less spaces than Plate Number(2 spaces) e.t.c
-                if (substr_count($formData, ' ') > 1) {
-                    // Check if the string holds Vehicle Model data as this needs to be stored differently.
-                    $string[0] == 'Model' ? $true = true : $true = false;
-                    if ($true) {
-                        $data[$string[0]] = $string[1] .' '. $string[2];
-                    }else{
-                        $string[0] = $string[0] == 'Isssue' ? 'Issue' : $string[0];
-                        $data[$string[0].$string[1]] =  $string[2];
-                    }                   
-                }else{
-                    $data[$string[0]] =  $string[1];
-                }
-                
-                return $data;          
+                return $this->processData($formData);
+                 
         });
-        // Strip multi-dimensional array into simple associative array.
+
+        // Strip multi-dimensional data array into simple associative array.
         $vehicleData = [];
         foreach ($nodeValues as $index => $value) {
             foreach ($value as $key => $carData) {
@@ -114,6 +99,41 @@ class Mvrd {
         }
 
         return $vehicleData;
+    }
+
+
+     /**
+     * Process vehicle data to make it possible to store them as key-value pairs in an array.
+     * @param  $data (string to be processed)
+     * @return array
+     */
+    public function processData($data)
+    {
+                // Prepare data to be stored as key=>value pairs
+                $string = explode(' ', $data, 3);   
+
+                // Use the number of spaces in the string as a requisite to determine how to handle them.
+                // e.g Color field(1 space) contains less spaces than Plate Number(2 spaces) e.t.c
+                if (substr_count($data, ' ') > 1) {
+
+                    // Check if the string holds Vehicle Model data as this needs to be stored differently.
+                    $isModelPresent = ($string[0] == 'Model') ? true : false;
+
+                    if ($isModelPresent) {
+                        $rawVehicleData[$string[0]] = $string[1] .' '. $string[2];
+                    }else{
+                        /*  An error on the host website (lsmvaapvs.org) sees 'Issue' misspelt as 'Isssue'
+                            we try to fix this by detecting that string and correcting it before handling the data.
+                        */
+                        $string[0] = $string[0] == 'Isssue' ? 'Issue' : $string[0];
+                        $rawVehicleData[$string[0].$string[1]] =  $string[2];
+                    }
+
+                }else{
+                    $rawVehicleData[$string[0]] =  $string[1];
+                }
+                
+                return $rawVehicleData;         
     }
 }
 
