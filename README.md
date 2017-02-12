@@ -62,6 +62,42 @@ $mvrd->getData();
 
 ![Response](https://cloud.githubusercontent.com/assets/2946769/21230172/5e2a9d54-c2e4-11e6-9456-12b75ca39028.png)
 
+
+### Grab specific Vehicle Detail
+
+```php
+
+<?php
+
+// include your composer dependencies
+require_once 'vendor/autoload.php';
+
+use Unicodeveloper\Mvrd\Mvrd;
+
+$plateNumber = 'xxxxxxxxxxxxxx'; //Use correct vehicle plate number, don't try this at home.
+
+$mvrd = new Mvrd($plateNumber);
+$mvrd->getData()['Color'];
+
+```
+Vehicle Information that can be acquired are;
+
+ - PlateNumber
+ - OwnerName
+ - Color
+ - Model
+ - ChasisNumber
+ - VehicleStatus
+ - IssueDate
+ - ExpiryDate
+
+*Please note that the array keys are case sensitive and can only be used as shown above.* 
+
+**Response Info for Developer**
+
+![mvrd](https://cloud.githubusercontent.com/assets/15154504/21583481/20df1ee6-d083-11e6-9734-a5edd7bd8bcd.PNG)
+
+
 ### Grab the Vehicle Details with Wrong or Invalid Plate Number
 
 ```php
